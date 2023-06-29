@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-//import {useNavigate} from "react-router-dom";
+import {useNavigate} from "react-router-dom";
 
 function Copyright(props) {
   return (
@@ -33,6 +33,8 @@ function Copyright(props) {
 const defaultTheme = createTheme();
 
 export default function SignIn() {
+
+  const navigate = useNavigate()
    
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -92,7 +94,8 @@ export default function SignIn() {
               fullWidth
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
-              onClick={Verify}
+              onClick={()=> navigate('/home')}
+              
             >
               Registrar
             </Button>
@@ -103,6 +106,7 @@ export default function SignIn() {
               variant="contained"
               sx={{ mt: 3, mb: 2 }}
               onClick={Verify}
+              
             >
               Promoter/Brocker
             </Button>
@@ -143,6 +147,7 @@ export default function SignIn() {
 //Submit Button
 function Verify() {
   //let history = useNavigate();
+  const navigate = useNavigate()
   var userRef = "user";
   var passRef = "user@123";
   
@@ -151,7 +156,9 @@ function Verify() {
   if (user === userRef || pass === passRef) {
   alert("correct password")
   //history.push('/home')
+  //navigate('/home')
   } else {
   alert("It's seem you make a mistake...")
   }
 };
+
